@@ -17,7 +17,11 @@ public class Calculator {
         this.type = type;
     }
 
-    public void run() {
+    public void run() throws Exception {
+
+        if (a > 10 || b > 10 || a < 1 || b < 1) {
+            throw new Exception("Числа не в диапазоне от 1 до 10");
+        }
 
         int rezultInt = 0;
         switch (operation) {
@@ -35,7 +39,7 @@ public class Calculator {
                 break;
         }
 
-        if (type == NumbersType.ARABIC) {
+        if (type == NumbersType.ROME) {
             rezult = RomanNumbers.ArabToRoman(rezultInt);
         }else {
             rezult = Integer.toString(rezultInt);
